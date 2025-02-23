@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>EyeSeeICE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/univers-next-pro-extended" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <a id="settings" href="index.html"><img width="40px" src="images/app.png"></img></a>
+    <div id="header">
+      <img width="200px" src="images/whiteeye.png"></img> 
+      <h1>See ICE</h1>
+    </div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.6256667742887!2d-71.10797402392139!3d42.35050363570542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e379f063e53817%3A0x2b346e00e0a3bec8!2sBoston%20University!5e0!3m2!1sen!2sus!4v1740280921895!5m2!1sen!2sus"
+        width="90%"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+
+      
+    </div>
+    <br />
+
+    <div class="upload-container">
+      <div class="file-upload-wrapper">
+        <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg, .heic" />
+        <label id="imageUpload" for="imageUpload">Upload Image</label>
+        <span id="fileform">Acceptable file formats: .png .jpg .jpeg .heic</span>
+      </div>
+      <input
+        type="text"
+        id="imageDescription"
+        placeholder="Enter a description for your image"
+      />
+      <input type="text" id="imageLocation" placeholder="Enter a location" />
+      <br />
+      <div class="button-container">
+        <!-- <button id="verifyButton" style="background-color: rgb(63, 63, 241)">
+          Verify
+        </button> -->
+        <br />
+        <button id="submitImage">Submit</button>
+      </div>
+
+    <br />
+    <!-- <button id="logoutButton" onclick="document.location='index.html'">
+      Exit
+    </button> -->
+
+    <div id="submittedContent"></div>
+    <div id="navbar">
+      <a href="redcards.html"><img src="images/redcardicon.png"></a>
+      <a id="post" href="post/post.html">+</a>
+      <a  href="activity.html"><img src="images/activityicon.png"></a>
+    </div>
+    <script>
+      const defaultBackground =
+        "url('https://i.chzbgr.com/full/10405655552/h118CB2B0/reached-encouragement-cat-great-job-keep-up-the_pizzacat')";
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("imagePreview").style.backgroundImage =
+          defaultBackground;
+      });
+
+      document
+        .getElementById("imageUpload")
+        .addEventListener("change", function (event) {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function () {
+              document.getElementById(
+                "imagePreview"
+              ).style.backgroundImage = `url(${reader.result})`;
+            };
+            reader.readAsDataURL(file);
+          } else {
+            document.getElementById("imagePreview").style.backgroundImage =
+              defaultBackground;
+          }
+        });
+
+      document
+        .getElementById("verifyButton")
+        .addEventListener("click", function () {
+          this.style.backgroundColor = "green";
+          isVerified = true;
+        });
+
+      document
+        .getElementById("submitImage")
+        .addEventListener("click", function () {
+          const imagePreview = document.getElementById("imagePreview");
+          const imageUrl = imagePreview.style.backgroundImage;
+          const description = document
+            .getElementById("imageDescription")
+            .value.trim();
+          const location = document
+            .getElementById("imageLocation")
+            .value.trim();
+
+          if (!description) {
+            alert("Please enter a description before submitting.");
+            return;
+          }
+
+          if (!location) {
+            alert("Please enter a location before submitting.");
+            return;
+          }
+
+          if (!isVerified) {
+            alert("Please verify your post before submitting.");
+            return;
+          }
+
+          if (imageUrl && imageUrl !== defaultBackground) {
+            const submittedContainer =
+              document.getElementById("submittedContent");
+            const newEntry = document.createElement("div");
+            newEntry.classList.add("submitted-entry");
+
+            const timestamp = new Date().toLocaleString();
+
+            newEntry.innerHTML = `
+              <div class="image-container" style='background-image: ${imageUrl};'></div>
+              <div class="text-container">
+                  <p><strong>Description:</strong> ${description}</p>
+                  <p><strong>Location:</strong> ${location}</p>
+                  <p><strong>Uploaded:</strong> ${timestamp}</p>
+              </div>
+            `;
+
+            submittedContainer.prepend(newEntry);
+
+            // Reset everything after submission
+            imagePreview.style.backgroundImage = defaultBackground;
+            document.getElementById("imageDescription").value = "";
+            document.getElementById("imageLocation").value = "";
+            document.getElementById("imageUpload").value = "";
+            document.getElementById("verifyButton").style.backgroundColor =
+              "blue";
+            isVerified = false;
+          } else {
+            alert("Please upload an image before submitting.");
+          }
+        });
+    </script>
+  </body>
+</html>

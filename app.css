@@ -1,0 +1,60 @@
+body {
+  background-color: black;
+}
+
+#settings {
+  padding: 0;
+  /* display: block; */
+  float: right;
+}
+
+h1,
+p,
+#fileform {
+  color: white;
+}
+
+#header {
+  display: flex;
+  justify-content: center;
+}
+
+#header h1 {
+  font-size: 400%;
+  font-family: "Univers Next Pro Extended", sans-serif;
+  font-weight: bold;
+}
+
+#navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a4a4a4;
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  bottom: 0;
+}
+
+#navbar #post {
+  background-color: white;
+  color: #464646;
+  font-size: 750%;
+  margin-left: 4%;
+  margin-right: 4%;
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 10%;
+  height: 60px;
+  align-items: center;
+  text-decoration: none;
+}
+
+#submitImage {
+  margin-bottom: 150%;
+}
+
+#fileform,
+#imageUpload {
+  font-family: "Inter", sans-serif;
+}

@@ -1,0 +1,232 @@
+h2 {
+  font-weight: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+.avatar-upload {
+  position: relative;
+  width: calc(100vw - 50px);
+  height: 100vh;
+  margin: auto;
+  overflow: hidden;
+}
+
+.avatar-preview {
+  width: 100%;
+  height: 100%;
+  background-image: url("https://i.chzbgr.com/full/10405655552/h118CB2B0/reached-encouragement-cat-great-job-keep-up-the_pizzacat");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.upload-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.file-upload-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-upload-wrapper input[type="file"] {
+  display: none;
+}
+
+.file-upload-wrapper label {
+  padding: 10px 20px;
+  background: #ffffff;
+  border: 1px solid #d6d6d6;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.file-upload-wrapper label:hover {
+  background: #e0e0e0;
+}
+
+.upload-container input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+}
+
+.upload-container button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background: #4caf50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-container button:hover {
+  background: #45a049;
+}
+
+#logoutButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background: #d9534f;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#submittedContent {
+  margin-top: 20px;
+  text-align: left;
+  padding-left: 25px;
+}
+
+.submitted-entry {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.submitted-entry .image-container {
+  width: 300px;
+  height: 200px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 20px;
+}
+
+.submitted-entry .text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+button#verify,
+button[name="verify"],
+button.verify {
+  background-color: rgb(98, 98, 224);
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button#verify:hover,
+button[name="verify"]:hover,
+button.verify:hover {
+  background-color: rgb(2, 2, 185);
+}
+
+/* 
+ * Always set the map height explicitly to define the size of the div element
+ * that contains the map. 
+ */
+#map {
+  height: 100%;
+}
+
+/* 
+ * Optional: Makes the sample page fill the window. 
+ */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+#infowindow-content .title {
+  font-weight: bold;
+}
+
+#infowindow-content {
+  display: none;
+}
+
+#map #infowindow-content {
+  display: inline;
+}
+
+.pac-card {
+  background-color: #fff;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+  padding: 0 0.5em;
+  font: 400 18px Roboto, Arial, sans-serif;
+  overflow: hidden;
+  font-family: Roboto;
+  padding: 0;
+}
+
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+#title {
+  color: #fff;
+  background-color: #4d90fe;
+  font-size: 25px;
+  font-weight: 500;
+  padding: 6px 12px;
+}
+
+/* index html */
